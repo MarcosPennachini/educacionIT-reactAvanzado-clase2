@@ -1,6 +1,7 @@
-//import {createStore} from 'redux'
+import {createStore} from 'redux'
+import reducer from '../reducer/reducer'
 
-export const defaultData = {
+const defaultData = {
     products: [
         {
             id: 1,
@@ -33,4 +34,4 @@ export const defaultData = {
     ]
 }
 
-//export default createStore(mainReducer, defaultData);
+export default createStore(reducer, defaultData);
