@@ -1,13 +1,11 @@
 import { RESPONSE_PRODUCTS } from "../action/action-types";
 
-const reducer = (state, action) => {
+const reducer = (state = {}, action) => {
     switch (action.type) {
         case RESPONSE_PRODUCTS:
             return {
-                productos: [
-                    ...state.productos,
-                    ...action.productos
-                ]
+                ...state,
+                products: action.payload
             }
     
         default:

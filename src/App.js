@@ -2,16 +2,18 @@ import 'bootstrap/dist/css/bootstrap.css'
 import ProductList from './containers/ProductList';
 import store from './store/store';
 import {Provider} from 'react-redux'
+import FetchProducts from './containers/FetchProducts';
 
 function App() {
   return (
     <Provider store={store}>
-      <header className="alert alert-danger">
-        <h1 className="display-1"><strong>Barba Roja</strong></h1>
-        <h2 className="display-6">¡Bienvenidos a nuestra birrería!</h2>
+      <header className="bg-dark text-white px-4 py-5 text-center">
+        <h1 className="display-2 fw-bold">Barba Roja</h1>
+        <p className="lead mb-4">¡Bienvenidos a nuestra birrería!</p>
       </header>
 
-      <main>
+      <main className="py-5">
+        <FetchProducts />
         <ProductList />
       </main>
     </Provider>
