@@ -1,8 +1,11 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import reducer from '../reducer/reducer'
-import {fetchMiddleware} from '../middlewares/fetchMiddleware'
+//import {fetchMiddleware} from '../middlewares/fetchMiddleware'
+import {sagaMain} from '../sagas/saga'
+import createSagaMiddleware from 'redux-saga'
 
 const defaultData = {
+    loading: false,
     products: [
         // {
         //     id: 1,
@@ -35,7 +38,12 @@ const defaultData = {
     ]
 }
 
+const sagaMiddleware = createSagaMiddleware();
+
+
 const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const composedEnhancer = compose(applyMiddleware(fetchMiddleware), reduxDevTools)
+const composedEnhancer = compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 
 export default createStore(reducer, defaultData, composedEnhancer);
+
+sagaMiddleware.run(sagaMain);
