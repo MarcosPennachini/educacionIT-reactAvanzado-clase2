@@ -3,6 +3,7 @@ import ProductList from './containers/ProductList';
 import store from './store/store';
 import {Provider} from 'react-redux'
 import FetchProducts from './containers/FetchProducts';
+import Loading from './containers/Loading';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       </header>
 
       <main className="py-5">
+        <Loading />
         <FetchProducts />
         <ProductList />
       </main>
