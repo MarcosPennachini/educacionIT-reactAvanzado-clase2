@@ -1,4 +1,4 @@
-import { RESPONSE_PRODUCTS } from "../action/action-types";
+import { BEGIN_LOAD, END_LOAD, RESPONSE_PRODUCTS } from "../action/action-types";
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
@@ -7,7 +7,17 @@ const reducer = (state = {}, action) => {
                 ...state,
                 products: action.payload
             }
-    
+        
+        case BEGIN_LOAD:
+            return {
+                ...state,
+                loading: true
+            }
+        case END_LOAD:
+            return {
+                ...state,
+                loading: false
+            }
         default:
             return state;
     }
