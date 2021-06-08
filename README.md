@@ -28,11 +28,7 @@ import createSagaMiddleware from 'redux-saga';
 
 ```javascript
 const sagaMiddleware = createSagaMiddleware();
-export default createStore(
-  reducer,
-  store - data,
-  applyMiddleware(sagaMiddleware)
-);
+export default createStore(reducer, storeData, applyMiddleware(sagaMiddleware));
 //Donde store-data es la data inicial que usamos en el store
 sagaMiddleware.run(sagaMain);
 ```
@@ -61,7 +57,7 @@ Creamos el archivo de nuestro middleware saga.
 
 _Podemos crear un directorio dentro de .src con el nombre de "sagas"_.
 
-El mismo capturará acciones antes de que lleguen al reducer, para ejecutar algún código en particular. En este caso el componente encargado de triggerear la renderización de las cards, emite la acción REQUEST_PRODUCTS. El middleware saga la captura, realiza un fetch a una url mediante **Axios**, y despacha un objeto acción con _type_ RESPONSE_PRODUCTS, en la cual su _payload_ contiene la lista de cards obtenidas de la llamada a la url.
+El mismo capturará acciones antes de que lleguen al reducer, para ejecutar algún código en particular. En este caso el componente encargado de triggerear la renderización de las cards, emite la acción REQUEST*PRODUCTS. El middleware saga la captura, realiza un fetch a una url mediante **Axios**, y despacha un objeto acción con \_type* RESPONSE*PRODUCTS, en la cual su \_payload* contiene la lista de cards obtenidas de la llamada a la url.
 
 Primero los imports:
 
